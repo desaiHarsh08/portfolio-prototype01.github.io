@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-p-[204px]">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="data:image/png;base64,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" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Prototype01</title>
+  <!-- Font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+  <!-- Google icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+  
+  
+
+  <!-- Typed JS -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Swiper JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+  <!-- <script type="module" crossorigin src="./assets/index.b7554f89.js"></script> -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/index.c1d490fc.css">
+</head>
+
+<body class="transition-all" id="body" onscroll="activeToTop()">
+  <div>
+    <header class="header px-2" id="header">
+      <nav class="navbar flex mb-12 sm:mb-auto sm:justify-around items-center px-2 py-4" id="navbar">
+        <div class="left w-1/2 hidden sm:block">
+          <span class="text-3xl text-purple-700 cursor-pointer">@Harsh</span>
+        </div>
+        <div class="right hidden md:flex justify-between w-1/2">
+          <ul class="nav-list flex space-x-14">
+            <li class="hover:text-red-600 font-semibold text-purple-600 text-lg"><a href="#home" class="active-item"
+                id="home-link" onclick="toActive('home-link') ">Home</a></li>
+            <li class="hover:text-red-600  text-lg" id="about-link"><a href="#about"
+                onclick="toActive('about-link')">About</a></li>
+
+            <li class="hover:text-red-600  text-lg" id="portfolio-link"><a href="#portfolio"
+                onclick="toActive('portfolio-link')">Portfolio</a></li>
+            <li class="hover:text-red-600  text-lg" id="contact-link"><a href="#contact"
+                onclick="toActive('contact-link')">Contact</a></li>
+          </ul>
+          <div class="mode flex items-center  cursor-pointer" id="mode" onclick="modeChangeOnMd()">
+            <div class="hidden" id="light-mode1">
+              <span class="material-symbols-outlined ">clear_day</span>
+            </div>
+            <div id="dark-mode1">
+              <span class="material-symbols-outlined">dark_mode</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="navbottom md:hidden  z-[999999999] fixed bg-purple-600 text-white bottom-0 left-0 px-2 py-4 border-2  border-transparent w-full flex justify-between "
+          id="menu">
+          <div>
+            <span class="text-xl cursor-pointer">@Harsh</span>
+          </div>
+          <div class="flex items-center">
+            <div class="mode mx-8 flex items-center cursor-pointer" onclick="modeChange()">
+              <span class="material-symbols-outlined hidden" id="light-mode">clear_day</span>
+              <span class="material-symbols-outlined" id="dark-mode">dark_mode</span>
+            </div>
+            <div class="cursor-pointer" id="menu-widget">
+              <span class="material-symbols-outlined">widgets</span>
+            </div>
+          </div>
+          <div
+            class="nav-doc z-[99999999999] flex justify-evenly items-center bg-[#ff6868] text-white border h-36 border-purple-600 -translate-x-[1000px] transition-all duration-500 absolute left-0 w-full -top-[148px] nav-menu"
+            id="menu-list">
+            <div class="flex flex-col items-center border-2 px-2 py-3  text-base">
+              <a href="#home">
+                <i class="fa-solid fa-house-chimney"></i>
+                <span>Home</span>
+              </a>
+            </div>
+            <div class="flex flex-col items-center border-2 px-2 py-3 text-base">
+              <a href="#about">
+                <i class="fa-solid fa-person"></i>
+                <span>About</span>
+              </a>
+            </div>
+            <div class="flex flex-col items-center border-2 px-2 py-3 text-base">
+              <a href="#portfolio">
+                <i class="fa-solid fa-file-contract"></i>
+                <span>Portfolio</span>
+              </a>
+            </div>
+            <div class="flex flex-col items-center border-2 px-2 py-3 text-base">
+              <a href="#contact">
+                <i class="fa-solid fa-phone"></i>
+                <span>Contact</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="main px-2">
+      <!-- Home -->
+      <div class="home h-[75vh] flex sm:py-28 flex-col-reverse md:flex-row " id="home">
+        <div class="left sm:w-2/3 h-full flex items-center justify-center">
+          <div class="col-1 w-1/3">
+            <ul class="text-right pr-6 md:pr-14 space-y- 6">
+              <li></li>
+              <li class="py-5 h-[50px]"><a href="" target="_blank"><i
+                    class="fa-brands fa-facebook-f text-xl hover:border hover:rounded-full px-3 py-1 hover:scale-125 transition-all text-blue-600 hover:text-white hover:bg-blue-600"></i></a>
+              </li>
+              <li class="py-5 h-[50px]"><a href="https://wa.me/919322585046" target="_blank"><i
+                    class="fa-brands fa-whatsapp text-xl hover:border hover:rounded-full px-2 py-1 hover:scale-125 transition-all text-green-600 hover:text-white hover:bg-green-600"></i></a>
+              </li>
+              <li class="py-5 h-[50px]"><a href="" target="_blank"><i
+                    class="fa-brands fa-instagram text-xl hover:border hover:rounded-full px-2 py-1 hover:scale-125 transition-all text-red-600 hover:text-white hover:bg-red-600"></i></a>
+              </li>
+              <li class="py-5 h-[50px]"><a href="https://github.com/desaiHarsh08" target="_blank"><i
+                    class="fa-brands fa-github text-xl hover:border hover:rounded-full px-2 py-1 hover:scale-125 transition-all hover:text-white hover:bg-black"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-2 flex flex-col ">
+            <h1 class="text-xl my-3 ">Hi, there</h1>
+            <h1 class="text-2xl sm:text-4xl my-3">I'm <span class="auto-type text-purple-600"></span></h1>
+            <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, est? Necessitatibus, officia!
+            </p>
+            <div class="btns space-x-2 sm:space-x-3">
+              <a href="#contact"
+                class="px-3 sm:px-4 py-3 border-2 border-transparent bg-purple-600 text-white font-medium rounded-md hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 ">Contact
+                me</a>
+              <button
+                class="px-3 sm:px-4 py-3 border border-transparent bg-blue-600 text-white font-medium rounded-md hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">Download
+                CV</button>
+            </div>
+            <div class="justify-start hidden sm:flex items-center sm:justify-center relative my-5 sm:top-14">
+              <span class="material-symbols-outlined">mouse</span>
+              <span>Scroll-down</span>
+            </div>
+          </div>
+        </div>
+        <div class="right flex justify-center items-center">
+          <img src="./assets/harsh.21a8010e.jpg" class="relative rounded-full border-2 border-purple-500 h-[268px] " alt="">
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="about py-20" id="about">
+        <div class="container mx-auto">
+          <div class="row flex flex-col md:flex-row justify-between items-center  ">
+            <div class="left h-1/3  flex  justify-center ">
+              <img src="./assets/harsh1.8ed685e7.png" class="w-2/3 border rounded-full" alt="">
+            </div>
+            <div class="right  ">
+              <h2 class="text-3xl font-semibold my-6 text-center ">About Me</h2>
+              <p class="text-justify text-base py-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit
+                eaque veritatis, esse obcaecati dolor
+                ad autem officiis sint! Voluptas quasi alias nisi reprehenderit!</p>
+              <div class="my-4">
+                <div class="tab-titles flex">
+                  <p class="tab-links border-2 border-transparent rounded-sm border-b-purple-900 active-link mr-12 text-lg cursor-pointer "
+                    onclick="openTab('skills')" id="skills-tab">Skills</p>
+                  <p class="tab-links mr-12 text-lg cursor-pointer border-2 border-transparent rounded-sm"
+                    onclick="openTab('experience')" id="experience-tab">Experience</p>
+                  <p class="tab-links mr-12 text-lg cursor-pointer border-2 border-transparent rounded-sm"
+                    onclick="openTab('education')" id="education-tab">Education</p>
+                </div>
+                <div class="tab-contents my-4 min-h-[252px]">
+                  <div class=" skills-content " id="skills">
+                    <ul id="skills-list">
+                      <li class="text-red-600 my-2">
+                        <span>HTML</span>
+                        <div class="flex items-center w-full h-5 rounded-md  bg-slate-600">
+                          <div class="h-full w-[87%] rounded-md bg-purple-500"></div>
+                          <span class="text-white">87%</span>
+                        </div>
+                      </li>
+                      <li class="text-red-600 my-2">
+                        <span>CSS</span>
+                        <div class="flex items-center w-full h-5 rounded-md  bg-slate-600">
+                          <div class="h-full w-[61%] rounded-md bg-purple-500"></div>
+                          <span class="text-white">61%</span>
+                        </div>
+                      </li>
+                      <li class="text-red-600 my-2">
+                        <span>JavaScript</span>
+                        <div class="flex items-center w-full h-5 rounded-md  bg-slate-600">
+                          <div class="h-full w-[75%] rounded-md bg-purple-500"></div>
+                          <span class="text-white">75%</span>
+                        </div>
+                      </li>
+                      <li class="text-red-600 my-2">
+                        <span>C</span>
+                        <div class="flex items-center w-full h-5 rounded-md  bg-slate-600">
+                          <div class="h-full w-[89%] rounded-md bg-purple-500"></div>
+                          <span class="text-white">89%</span>
+                        </div>
+                      </li>
+                      <li class="text-red-600 my-2">
+                        <span>Java</span>
+                        <div class="flex items-center w-full h-5 rounded-md  bg-slate-600">
+                          <div class="h-full w-[89%] rounded-md bg-purple-500"></div>
+                          <span class="text-white">87%</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="hidden experience-content" id="experience">
+                    Experience
+                  </div>
+                  <div class="hidden education-content" id="education">
+                    Education
+                  </div>
+                </div>
+              </div>
+              <button
+                class="px-3 sm:px-4 py-3 border border-transparent bg-blue-600 text-white font-medium rounded-md hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 ">Download
+                CV</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio -->
+      <div class="portfolio px-2" id="portfolio">
+        <h2 class="text-3xl font-semibold my-6 text-center ">Portfolio</h2>
+        <div class="portfolio-container container mx-auto py-10">
+          <!-- Swiper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide cursor-pointer">
+                <div class="card  py-4 flex flex-col sm:flex-row px-2 sm:px-10  ">
+                  <div class="left sm:w-1/2  flex justify-center">
+                    <img src="./assets/proj-1.a4078f37.png" class="h-[235px]" alt="project-1">
+                  </div>
+                  <div class="right px-2 ">
+                    <h3 class="text-xl font-medium my-4 text-center sm:text-left">Microsoft Clone</h3>
+                    <p class="mt-8 my-4 text-center sm:text-left">Microsoft's home page cloned using HTML + CSS(Tailwind
+                      CSS) + JavaScript</p>
+                    <div class="btns sm:block justify-center flex">
+                      <a href="https://github.com/desaiHarsh08/ms-clone.github.io" target="_blank"
+                        class="px-2  sm:px-4 py-2 border-2 border-transparent bg-slate-700 rounded-sm text-stone-200 hover:text-white hover:bg-slate-900 focus:ring-4 focus:ring-slate-400 text-xs sm:text-base my-3 mx-2">
+                        <i class="fa-brands fa-github "></i>
+                        Github - Source Code
+                      </a>
+                      <a href="https://desaiharsh08.github.io/ms-clone.github.io/" target="_blank"
+                        class="px-4 py-2 border border-transparent bg-red-600 rounded-sm hover:bg-red-800 text-white blo ck my-3 sm:inline-block w-fit text-xs sm:text-base ">Live
+                        demo</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide cursor-pointer">
+                <div class="card  py-4  flex flex-col sm:flex-row px-2 sm:px-10">
+                  <div class="left sm:w-1/2 flex justify-center">
+                    <img src="./assets/proj-2.00dc1df5.jpg" class="h-[235px]" alt="project-1">
+                  </div>
+                  <div class="right px-2 ">
+                    <h3 class="text-xl text-center font-medium my-4">Tic-Tac-Toe</h3>
+                    <p class="mt-8 my-4 text-center py-4 ">Two player game using Java</p>
+                    <a href="https://github.com/desaiHarsh08/ms-clone.github.io"
+                      class="px-4 py-2 border border-transparent bg-slate-700 rounded-sm text-stone-200 hover:bg-slate-900 focus:ring-4 focus:ring-slate-400 sm:mr-2 block my-3 sm:inline-block w-fit m-auto text-xs sm:text-base">
+                      <i class="fa-brands fa-github"></i>
+                      Github - Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="swiper-button-next text-orange-400"></div>
+            <div class="swiper-button-prev text-orange-400"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact py-20" id="contact">
+        <h2 class="text-3xl font-semibold my-6 text-center ">Contact Me</h2>
+        <div
+          class="flex  relative justify-center items-center min-h-screen bg-[#112d42] before:contents-[''] before:absolute before:top-0 before:left-0 before:w-1/2 before:h-full before:bg-[#03a9f4] ">
+          <div class="contact-container relative min-h-[550px] pb-12 flex flex-col items-center md:flex-row z-[1000] ">
+            <div
+              class="contact-info relative h-fit top-10 w-[76vw] md:w-96 bg-[#0f3959]  md:right-96 z-10 py-8 px-3 md:p-10 flex flex-col justify-between text-white ">
+              <div>
+                <h3 class="text-2xl font-semibold">Contact Info</h3>
+                <ul class="info relative my-5 text-slate-300">
+                  <li class="relative flex my-5 cursor-pointer items-center hover:text-slate-100">
+                    <i class="fa-solid fa-location-dot text-4xl mx-2"></i>
+                    <p class="mx-2">
+                      E-6/32, New Vyankatesh nagar society, K.D.K College road, Nandanvan, Nagpur.
+                    </p>
+                  </li>
+                  <li class="relative flex my-5 cursor-pointer items-center hover:text-slate-100">
+                    <i class="fa-solid fa-phone text-4xl mx-2"></i>
+                    <p class="mx-2">+91 9322585046</p>
+                  </li>
+                  <li class="relative flex my-5 cursor-pointer items-center hover:text-slate-100">
+                    <i class="fa-regular fa-envelope text-4xl mx-2"></i>
+                    <p class="mx-2">desaiharsh183@gmail.com</p>
+                  </li>
+                </ul>
+                <ul class="social-media flex justify-center items-center space-x-4">
+                  <li class="py-5 h-[50px]"><a href=""><i
+                        class="fa-brands fa-facebook-f text-xl px-3 py-1 text-blue-600 hover:text-blue-500 "></i></a>
+                  </li>
+                  <li class="py-5 h-[50px]"><a href=""><i
+                        class="fa-brands fa-whatsapp text-xl px-2 py-1 text-green-600 hover:text-green-500"></i></a>
+                  </li>
+                  <li class="py-5 h-[50px] "><a href=""><i
+                        class="fa-brands fa-instagram text-xl px-2 py-1 text-red-600 hover:text-red-300"></i></a></li>
+                  <li class="py-5 h-[50px] hover:text-slate-500"><a href=""><i
+                        class="fa-brands fa-github text-xl px-2 py-1 "></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="contact-form bg-white md:pl-[150px] py-5 pt-20 md:py-[70px] px-2 md:px-[50px] top-1 md:h-[559px] w-[87vw] md:w-[56vw] relative md:absolute ">
+              <h3 class="text-[#0f3959] text-xl font-medium ">Send a message</h3>
+              <div class="form-box relative ">
+                <form class="flex justify-between flex-wrap pt-7">
+                  <div class="input-box relative mb-8 w-full md:w-1/2 ">
+                    <input type="text" name="clientFirstName" id="clientFirstName"
+                      class="border w-[95%] p-2 font-medium text-[#333] outline-orange-300  " placeholder="First Name"
+                      required>
+                  </div>
+                  <div class="input-box relative mb-8 w-full md:w-1/2">
+                    <input type="text" name="clientLastName" id="clientLastName"
+                      class="border  w-[95%] p-2 font-medium text-[#333] outline-orange-300 " placeholder="Last Name"
+                      required>
+
+                  </div>
+                  <div class="input-box relative mb-8 w-full md:w-1/2">
+                    <input type="email" name="clientEmail" id="clientEmail"
+                      class="border  w-[95%] p-2 font-medium text-[#333] outline-orange-300" placeholder="Email Address"
+                      required>
+
+                  </div>
+                  <div class="input-box relative mb-8 w-full md:w-1/2">
+                    <input type="text" name="clientName" id="clientName"
+                      class="border w-[95%] p-2 font-medium text-[#333] outline-orange-300 " placeholder="Mobile Number"
+                      required>
+
+                  </div>
+                  <div class="input-box relative mb-8 w-full">
+                    <textarea name="clientMessage" rows="7" id="clientMessage"
+                      class="border w-[95%] p-2 font-medium text-[#333] outline-orange-300 "
+                      placeholder="Enter your message" required></textarea>
+
+                  </div>
+                  <div class="input-box  mb-8 w-full">
+                    <button
+                      class="px-4 p-2 bg-orange-500 text-white font-semibold rounded-md focus:ring-4 focus:ring-orange-300">Send</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="btn-top hidden fixed right-1 top-[79%] z-[1212] md:top-[89%] transition-all" id="btn-top">
+      <a href="#header" class="px-4 py-2 border border-transparent bg-blue-600 text-white rounded-md focus:ring-4">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+      </a>
+    </div>
+    <footer class="bg-[#2a2a81] pt-10 pb-20 sm:pb-10 px-auto" id="footer">
+      <div class="container mx-auto px-4 text-slate-300 ">
+        <div class="flex flex-col sm:flex-row justify-evenly items-center">
+          <div>
+            <h2 class="text-2xl font-semibold mb-10 sm:m-0">#HD</h2>
+          </div>
+          <div>
+            <ul class="space-y-4 my-5">
+              <li><a href="#about">About</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+
+            <ul class="social-media flex justify-start items-center space-x-4 mt-7 sm:mt-0">
+              <li class="py-5 sm:py-0 h-[50px]"><a href=""><i
+                    class="fa-brands fa-facebook-f text-xl pr-3 py-1 text-blue-600 hover:text-blue-500 "></i></a>
+              </li>
+              <li class="py-5 sm:py-0 h-[50px]"><a href="https://wa.me/919322585046" target="_blank"><i
+                    class="fa-brands fa-whatsapp text-xl px-2 py-1 text-green-600 hover:text-green-500"></i></a>
+              </li>
+              <li class="py-5 sm:py-0 h-[50px] "><a href=""><i
+                    class="fa-brands fa-instagram text-xl px-2 py-1 text-red-600 hover:text-red-300"></i></a></li>
+              <li class="py-5 sm:py-0 h-[50px] hover:text-slate-500"><a href="https://github.com/desaiHarsh08" target="_blank"><i
+                    class="fa-brands fa-github text-xl px-2 py-1 "></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center text-slate-400 mt-14 mb-10 sm:mb-5">Copyright &copy; desaiHarsh08. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+    const c=function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))d(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&d(o)}).observe(document,{childList:!0,subtree:!0});function i(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerpolicy&&(t.referrerPolicy=e.referrerpolicy),e.crossorigin==="use-credentials"?t.credentials="include":e.crossorigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function d(e){if(e.ep)return;e.ep=!0;const t=i(e);fetch(e.href,t)}};c();document.getElementById("menu");const r=document.getElementById("menu-list"),s=document.getElementById("menu-widget");document.getElementById("clientFirstName");document.getElementById("clientLastName");document.getElementById("clientEmail");document.getElementById("clientMobile");document.getElementById("clientMessage");s.addEventListener("click",function(){console.log("fired"),r.classList.toggle("-translate-x-[1000px]")});const m=document.getElementById("body");document.getElementById("mode");document.getElementById("dark-mode");document.getElementById("light-mode");const l=document.getElementById("btn-top");m.addEventListener("scroll",function(){window.scrollY>=398?l.classList.remove("hidden"):l.classList.add("hidden")});
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <!-- SMTP JS -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    // function sendEmail(){
+    //   Email.send({
+    //       Host : "smtp.gmail.com",
+    //       Username : "harshndesai.it@kdkce.edu.in",
+    //       Password : "pass@219",
+    //       To : 'desaiharsh183@gmail.com',
+    //       From : document.getElementById('clientEmail').value,
+    //       Subject : "New Contact  Form Enquiry",
+    //       Body : document.getElementById('clientMessage').value
+    //       }).then(
+    //       message => alert(message)
+    //   );
+    // }
+  </script>
+  <script>
+    // Typed.JS: - 
+    var options = {
+      strings: ['Harsh Nilesh Desai'],
+      typeSpeed: 30,
+      backSpeed: 30,
+      backDelay: 1500,
+      startDelay: 500,
+      loop: true
+    };
+
+    var typed = new Typed('.auto-type', options);
+
+
+    // function toActive(navItem){
+    //   const item = document.getElementById(navItem);
+    //   const links = ["home-link", "about-link", "skills-link", "portfolio-link", "contact-link"];
+    //   console.log(item)
+    //   item.addEventListener("click", function(){
+    //     document.getElementById(links[0]).classList.remove("active-item");
+    //     for(let i; i < links.length; i++){
+    //       console.log(links[i]);
+    //       if(links[i] !== navItem){
+    //         document.getElementById(links[i]).classList.remove("active-item");
+    //       }
+    //     }
+    //     item.classList.add("active-item");
+    //   });
+    // }
+
+    const tabLinks = document.getElementsByClassName('tab-links')
+    // const tabLinks = document.getElementsByClassName('tab-contents')
+
+
+    function openTab(tab) {
+      // console.log(tabLinks);
+
+      // To remove underline: -
+      for (tabLink of tabLinks) {
+        tabLink.classList.remove('border-b-purple-900')
+      }
+
+      // To clear tab-content: -
+      var contentNames = ['skills', 'experience', 'education'];
+      for (content of contentNames) {
+        // console.log(document.getElementById(content));
+        document.getElementById(content).classList.add('hidden');
+      }
+
+      // To display specific content: -
+      document.getElementById(tab + '-tab').classList.add('border-b-purple-900');
+      document.getElementById(tab).classList.toggle('hidden');
+
+
+
+
+    }
+
+    const body = document.getElementById('body');
+    const menuList = document.getElementById('menu-list');
+    const mode = document.getElementById('mode');
+    const darkMode = document.getElementById('dark-mode');
+    const lightMode = document.getElementById('light-mode');
+    const darkMode1 = document.getElementById('dark-mode1');
+    const lightMode1 = document.getElementById('light-mode1');
+    const skillsList = document.getElementById('skills-list').querySelectorAll('li');
+    console.log(skillsList)
+    function modeChange() {
+      console.log('fired');
+      console.log(lightMode);
+      console.log(darkMode);
+      body.classList.toggle("bg-[#292424]");
+      body.classList.toggle("text-white");
+      menuList.classList.toggle("bg-[#ff7f50]");
+      menuList.classList.toggle("bg-[#ff6868]");
+      // menuList.classList.toggle("text-black");
+      darkMode.classList.toggle("hidden");
+      lightMode.classList.toggle("hidden");
+      skillsList.forEach(element => {
+        element.classList.toggle('text-[#00ffff]');
+      });
+    }
+
+    function modeChangeOnMd() {
+      const body = document.getElementById('body');
+      const darkMode1 = document.getElementById('dark-mode1');
+      const lightMode1 = document.getElementById('light-mode1');
+      const skillsList = document.getElementById('skills-list').querySelectorAll('li');
+      body.classList.toggle("bg-[#292424]");
+      body.classList.toggle("text-white");
+      menuList.classList.toggle("bg-[#ff7f50]");
+      menuList.classList.toggle("text-black");
+      darkMode1.classList.toggle("hidden");
+      lightMode1.classList.toggle("hidden");
+      skillsList.forEach(element => {
+        element.classList.toggle('text-[#00ffff]');
+      });
+    }
+
+
+    function activeToTop() {
+      const body = document.getElementById('body');
+
+      const btnTop = document.getElementById('btn-top');
+      if (window.scrollY >= 398) {
+        // btnTop.classList.add('block');
+        btnTop.classList.remove('hidden');
+      } else {
+        // btnTop.classList.remove('block');
+        btnTop.classList.add('hidden');
+      }
+    }
+  </script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+
+</html>
